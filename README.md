@@ -18,7 +18,35 @@ We don't store Ruby objects in the database, and we don't get Ruby objects back 
 When we query the database, it is up to us to write the code that takes that data and turns it back into an instance of whatever class. We, the programmers, will be the translators that translate the raw data that the database sends into Ruby objects that are instances of a particular class.
 
 ##Example
-Imagine we have a Song class. 
+Let's use our song domain as an example. Imagine we have a Song class that is responsible for making songs. Every song will come with two attributes, a title and a length. We could make a bunch of new songs, but we want to look at all the songs we have that have already been created.
+
+Image we have a database with 1 million songs. We need to build three methods to access the all of those songs and convert them to Ruby objects.
+
+##`#new_from_db`
+The first thing we need to do is convert what the database gives us into a ruby object. We will use this method to create all the Ruby objects in our next two methods.
+
+The first thing to know is that the database (SQLite) in our case, will return an array of data for each row. For example, a row for Michael Jackson's "Thriller" (356 seconds long) that has a db id of 1 would look like this: `[1, "Thriller", 356]`.
+
+```ruby
+def self.new_from_db(row)
+  new_ruby_object = self.new  # self.new is the same as running Student.new
+  new_ruby_object.id = row[0]
+  new_ruby_object.name =  row[1]
+  new_ruby_object.length = row[2]
+end
+```
+
+This can also be achieved using the `tap` method. Tap yields the object to the block. If you're comfortable using `tap`, go for it. If it's confusing, you can ignore it. 
+
+```ruby
+def self.new_from_db(row)
+  self.new.tap do |song|
+    song.id = row[0]
+    song.name =  row[1]
+    song.length = row[2]
+  end
+end
+```
 
 ##`Song.all` 
 
@@ -30,7 +58,7 @@ class Song
       FROM songs
     SQL
     
-    DB[:conn].execute(sql,name).map do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
   end
