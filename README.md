@@ -49,6 +49,30 @@ end
 ```
 
 ##`Song.all` 
+Now we can start writing our methods to retrieve the data. To return all the songs in the database we need the following SQL query: `SELECT * FROM songs`. Let's store that in a variable called `sql` using a heredoc (`<<-`) since our string will go onto multiple lines.
+
+```ruby
+sql = <<-SQL
+      SELECT *
+      FROM songs
+    SQL
+```
+Next, we will make a call to our database using `DB[:conn]`. This is just the syntax for connecting to our db. In the lab, you can find the following setup that allows us to run the above hash in `config/environment.rb`. The connection will look like: `DB = {:conn => SQLite3::Database.new("db/songs.db")}`. `DB[:conn]` responds to a method called `execute` that accepts raw SQL as a string. Let's pass in that SQL we store above:
+
+```ruby
+class Song
+  def self.all
+    sql = <<-SQL
+      SELECT *
+      FROM songs
+    SQL
+    
+    DB[:conn].execute(sql)
+  end
+end
+```
+
+This will return an array of rows from the database that match our query. Now, all we have to do is iterate over each row and use the `new_from_db` method to create a new Ruby object for each row.
 
 ```ruby
 class Song
@@ -66,10 +90,11 @@ end
 ```
 
 ##`Song.find_by_name`
+This one is similar to `Song.all` with the small exception being that we have to include a name in our SQL statement. To do this, we use a question mark where we want to name to be passed in, and include the name as the optional argument to the `execute method`.
 
 ```ruby
 class Song
-  def self.find_by_name	(name)
+  def self.find_by_name(name)
     sql = <<-SQL
       SELECT *
       FROM songs
