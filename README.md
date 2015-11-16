@@ -18,7 +18,7 @@ We don't store Ruby objects in the database, and we don't get Ruby objects back 
 When we query the database, it is up to us to write the code that takes that data and turns it back into an instance of whatever class. We, the programmers, will be the translators that translate the raw data that the database sends into Ruby objects that are instances of a particular class.
 
 ##Example
-Let's use our song domain as an example. Imagine we have a Song class that is responsible for making songs. Every song will come with two attributes, a title and a length. We could make a bunch of new songs, but we want to look at all the songs we have that have already been created.
+Let's use our song domain as an example. Imagine we have a `Song` class that is responsible for making songs. Every song will come with two attributes, a `title` and a `length`. We could make a bunch of new songs, but we want to look at all the songs we have that have already been created.
 
 Imagine we have a database with 1 million songs. We need to build three methods to access all of those songs and convert them to Ruby objects.
 
