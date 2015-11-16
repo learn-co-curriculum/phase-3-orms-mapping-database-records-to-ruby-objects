@@ -20,10 +20,10 @@ When we query the database, it is up to us to write the code that takes that dat
 ##Example
 Let's use our song domain as an example. Imagine we have a Song class that is responsible for making songs. Every song will come with two attributes, a title and a length. We could make a bunch of new songs, but we want to look at all the songs we have that have already been created.
 
-Image we have a database with 1 million songs. We need to build three methods to access the all of those songs and convert them to Ruby objects.
+Imagine we have a database with 1 million songs. We need to build three methods to access all of those songs and convert them to Ruby objects.
 
-##`#new_from_db`
-The first thing we need to do is convert what the database gives us into a ruby object. We will use this method to create all the Ruby objects in our next two methods.
+##`.new_from_db`
+The first thing we need to do is convert what the database gives us into a Ruby object. We will use this method to create all the Ruby objects in our next two methods.
 
 The first thing to know is that the database (SQLite) in our case, will return an array of data for each row. For example, a row for Michael Jackson's "Thriller" (356 seconds long) that has a db id of 1 would look like this: `[1, "Thriller", 356]`.
 
@@ -36,7 +36,7 @@ def self.new_from_db(row)
 end
 ```
 
-This can also be achieved using the `tap` method. Tap yields the object to the block. If you're comfortable using `tap`, go for it. If it's confusing, you can ignore it. 
+This can also be achieved using the `tap` method. Tap yields the object to the block and then returns the original object. If you're comfortable using `tap`, go for it. If it's confusing, you can ignore it. 
 
 ```ruby
 def self.new_from_db(row)
