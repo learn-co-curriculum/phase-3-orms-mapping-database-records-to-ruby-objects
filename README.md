@@ -46,7 +46,7 @@ sql = <<-SQL
       FROM songs
     SQL
 ```
-Next, we will make a call to our database using `DB[:conn]`. This is just the syntax for connecting to our db. In the lab, you can find the following setup that allows us to run the above hash in `config/environment.rb`. The connection will look like: `DB = {:conn => SQLite3::Database.new("db/songs.db")}`. `DB[:conn]` responds to a method called `execute` that accepts raw SQL as a string. Let's pass in that SQL we store above:
+Next, we will make a call to our database using `DB[:conn]`. This `DB` hash is located in the `config/environment.rb`: `DB = {:conn => SQLite3::Database.new("db/students.db")}`. Notice that the value of the hash is actually a new instance of the `SQLite3::Database` class. This is how we will connect to our database. Our database instance responds to a method called `execute` that accepts raw SQL as a string. Let's pass in that SQL we store above:
 
 ```ruby
 class Song
