@@ -29,22 +29,11 @@ The first thing to know is that the database (SQLite) in our case, will return a
 
 ```ruby
 def self.new_from_db(row)
-  new_ruby_object = self.new  # self.new is the same as running Student.new
-  new_ruby_object.id = row[0]
-  new_ruby_object.name =  row[1]
-  new_ruby_object.length = row[2]
-end
-```
-
-This can also be achieved using the `tap` method. Tap yields the object to the block and then returns the original object. If you're comfortable using `tap`, go for it. If it's confusing, you can ignore it. 
-
-```ruby
-def self.new_from_db(row)
-  self.new.tap do |song|
-    song.id = row[0]
-    song.name =  row[1]
-    song.length = row[2]
-  end
+  new_song = self.new  # self.new is the same as running Song.new
+  new_song.id = row[0]
+  new_song.name =  row[1]
+  new_song.length = row[2]
+  new_song  # return the newly created instance
 end
 ```
 
