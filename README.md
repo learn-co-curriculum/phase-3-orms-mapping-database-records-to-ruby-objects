@@ -1,14 +1,16 @@
 #Mapping tables to objects 
-###Basics of reading from a database table that is mapped to a Ruby object
+
+## Overview
+In this lesson, we'll cover the basics of reading from a database table that is mapped to a Ruby object
 
 
 ##Objectives
 1. Build methods that read from a database table
-2. Understand how to build `Song.all` that returns all songs from the database
-3. Understand how to build `Song.find_by_name` method that return a song from the database by the song's name
-4. How to convert what the database gives you into a Ruby object
+2. Build `Song.all` that returns all songs from the database
+3. Build `Song.find_by_name` method that return a song from the database by the song's name
+4. Convert what the database gives you into a Ruby object
 
-##Overview
+
 Our Ruby program gets most interesting when we add data. To do this, we use a database. When we want our Ruby program to store things we send them off to a database. When we want to retrieve those things, we ask the database to send them back to our program. This works very well, but there is one small problem to overcome -- our Ruby program and the database don't speak the same language.
 
 Ruby understands objects. The database understands raw data.
