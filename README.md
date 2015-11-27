@@ -17,7 +17,7 @@ Ruby understands objects. The database understands raw data.
 
 We don't store Ruby objects in the database, and we don't get Ruby objects back from the database. We store the raw data that describes a given Ruby object in a table row and we get back raw data that describes a ruby object when we select from that table. 
 
-When we query the database, it is up to us to write the code that takes that data and turns it back into an instance of whatever class. We, the programmers, will be the translators that translate the raw data that the database sends into Ruby objects that are instances of a particular class.
+When we query the database, it is up to us to write the code that takes that data and turns it back into an instance of whatever class. We, the programmers, will be responsible for translating the raw data that the database sends into Ruby objects that are instances of a particular class.
 
 ##Example
 Let's use our song domain as an example. Imagine we have a `Song` class that is responsible for making songs. Every song will come with two attributes, a `title` and a `length`. We could make a bunch of new songs, but we want to look at all the songs we have that have already been created.
