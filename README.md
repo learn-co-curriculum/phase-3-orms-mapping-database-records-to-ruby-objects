@@ -100,3 +100,5 @@ class Song
 end
 ```
 
+
+<a href='https://learn.co/lessons/orm-mapping-db-to-ruby-object' data-visibility='hidden'>View this lesson on Learn.co</a>
