@@ -81,7 +81,7 @@ end
 ```
 
 ##`Song.find_by_name`
-This one is similar to `Song.all` with the small exception being that we have to include a name in our SQL statement. To do this, we use a question mark where we want to name to be passed in, and include the name as the optional argument to the `execute method`.
+This one is similar to `Song.all` with the small exception being that we have to include a name in our SQL statement. To do this, we use a question mark where we want name to be passed in, and include the name as the optional argument to the `execute method`.
 
 ```ruby
 class Song
@@ -100,5 +100,3 @@ class Song
 end
 ```
 
-
-<a href='https://learn.co/lessons/orm-mapping-db-to-ruby-object' data-visibility='hidden'>View this lesson on Learn.co</a>
