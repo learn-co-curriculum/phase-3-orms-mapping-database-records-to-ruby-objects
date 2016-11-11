@@ -48,7 +48,7 @@ sql = <<-SQL
       FROM songs
     SQL
 ```
-Next, we will make a call to our database using `DB[:conn]`. This `DB` hash is located in the `config/environment.rb`: `DB = {:conn => SQLite3::Database.new("db/students.db")}`. Notice that the value of the hash is actually a new instance of the `SQLite3::Database` class. This is how we will connect to our database. Our database instance responds to a method called `execute` that accepts raw SQL as a string. Let's pass in that SQL we store above:
+Next, we will make a call to our database using `DB[:conn]`. This `DB` hash is located in the `config/environment.rb`: `DB = {:conn => SQLite3::Database.new("db/songs.db")}`. Notice that the value of the hash is actually a new instance of the `SQLite3::Database` class. This is how we will connect to our database. Our database instance responds to a method called `execute` that accepts raw SQL as a string. Let's pass in that SQL we store above:
 
 ```ruby
 class Song
@@ -102,3 +102,5 @@ end
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/orm-mapping-db-to-ruby-object' title='Mapping tables to objects'>Mapping tables to objects</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/orm-mapping-db-to-ruby-object'>Mapping Database Tables to Ruby Objects</a> on Learn.co and start learning to code for free.</p>
