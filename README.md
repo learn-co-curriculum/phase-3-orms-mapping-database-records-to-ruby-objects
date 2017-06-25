@@ -100,6 +100,11 @@ class Song
 end
 ```
 
+Remember that we can chain on `.first` after the map method's `end` keyword as map returns an array. It's identical to the following:
+
+```
+DB[:conn].execute(sql,name).map { |row| self.new_from_db(row) }.first
+```
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/orm-mapping-db-to-ruby-object' title='Mapping tables to objects'>Mapping tables to objects</a> on Learn.co and start learning to code for free.</p>
 
