@@ -24,7 +24,7 @@ Ruby understands objects. The database understands raw data.
 
 We don't store Ruby objects in the database, and we don't get Ruby objects back
 from the database. We store raw data describing a given Ruby object in a table
-row, and, when we want to reconstruct a Ruby object from the stored data, we
+row, and when we want to reconstruct a Ruby object from the stored data, we
 select that same row in the table.
 
 When we query the database, it is up to us to write the code that takes that
@@ -34,13 +34,13 @@ sends into Ruby objects that are instances of a particular class.
 
 ## Example
 
-Let's use our song domain as an example. Imagine we have a `Song` class that is
+Let's use a song domain as an example. Imagine we have a `Song` class that is
 responsible for making songs. Every song will come with two attributes, a
 `title` and a `length`. We could make a bunch of new songs, but first, we want to
 look at all the songs that have already been created.
 
-Imagine we have a database with 1 million songs. We need to build three methods
-to access all of those songs and convert them to Ruby objects.
+Imagine we already have a database with 1 million songs. We need to build three
+methods to access all of those songs and convert them to Ruby objects.
 
 ## `.new_from_db`
 
@@ -62,6 +62,10 @@ def self.new_from_db(row)
   new_song  # return the newly created instance
 end
 ```
+
+Now, you may notice something - since we're retrieving data from a database, we
+are using `new`. We don't need to _create_ records. With this method, we're
+reading data from SQLite and temporarily representing that data in Ruby.
 
 ## `Song.all`
 
