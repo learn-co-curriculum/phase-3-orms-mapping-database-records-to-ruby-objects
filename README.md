@@ -1,13 +1,11 @@
-# Mapping Tables to Objects
+# Converting Database Records to Ruby Objects
 
-## Objectives
+## Learning Goals
 
-- Build methods that read from a database table.
-- Build a `Song.all` class method that returns all songs from the database.
-- Build a `Song.find_by_name` class method that accepts one argument, a name,
-  searches the database for a song with that name and returns the matching song
-  entry if one is found.
-- Convert what the database gives you into a Ruby object.
+- Build methods that read from a database table
+- Build a `Song.all` class method that returns all songs from the database
+- Build a `Song.find_by_name` class method that accepts one argument, a name  searches the database for a song with that name and returns the matching song entry if one is found
+- Convert what the database gives you into a Ruby object
 
 ## Introduction
 
