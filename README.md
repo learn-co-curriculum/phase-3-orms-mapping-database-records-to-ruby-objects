@@ -150,7 +150,7 @@ end
 ```
 
 This will return an array of rows from the database that matches our query. Now,
-all we have to do is iterate over each row and use the `self.find` method to
+all we have to do is iterate over each row and use the `self.map` method to
 create a new Ruby object for each row:
 
 ```ruby

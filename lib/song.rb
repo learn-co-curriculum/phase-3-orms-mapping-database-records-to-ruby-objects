@@ -24,6 +24,14 @@ class Song
     # return the Ruby instance
     self
   end
+  
+  def self.drop_table
+    sql = <<-SQL
+      DROP TABLE IF EXISTS songs
+    SQL
+
+    DB[:conn].execute(sql)
+  end
 
   def self.create_table
     sql = <<-SQL
