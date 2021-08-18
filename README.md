@@ -73,9 +73,9 @@ The first thing we need to do is convert what the database gives us into a Ruby
 object. We will use this method to create all the Ruby objects in our next two
 methods.
 
-One to know is that the database, SQLite in our case, will return an array of
-data for each row. For example, a row for Michael Jackson's "Billie Jean" from
-the album "Thriller" that has an id of 1 would look like this:
+One thing to know is that the database, SQLite in our case, will return an array
+of data for each row. For example, a row for Michael Jackson's "Billie Jean"
+from the album "Thriller" that has an id of 1 would look like this:
 `[1, "Billie Jean", "Thriller"]`.
 
 ```ruby
