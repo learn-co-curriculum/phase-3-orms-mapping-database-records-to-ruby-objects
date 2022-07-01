@@ -4,9 +4,9 @@
 
 - Build methods that read from a database table
 - Build a `Song.all` class method that returns all songs from the database
-- Build a `Song.find_by_name` class method that accepts one argument, a name
-  searches the database for a song with that name and returns the matching song
-  entry if one is found
+- Build a `Song.find_by_name` class method that accepts one argument, a name,
+  and searches the database for a song with that name and returns the matching
+  song entry if one is found
 - Convert what the database gives you into a Ruby object
 
 ## Introduction
@@ -100,7 +100,7 @@ reading data from SQLite and temporarily representing that data in Ruby.
 Recall that in previous lessons with Ruby classes, we used the `Class.all`
 method along with the `@@all` class variable to return an array of all instances
 of our class. In those examples, `@@all` was the **single source of truth** for
-instances in to a particular class.
+instances in a particular class.
 
 That approach showed some limitations, however. Using that method meant that our
 Ruby objects were only persisted in memory as long as our Ruby program was running.
