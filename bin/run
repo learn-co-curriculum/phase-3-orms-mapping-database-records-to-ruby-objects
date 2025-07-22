@@ -1,5 +1,4 @@
-#!/usr/bin/env ruby 
-
+#!/usr/bin/env ruby
 require 'pry'
 require_relative '../config/environment'
 
